@@ -29,6 +29,8 @@ Replace your 'TMDB-API-KEY' with your API Key from TMDB.  This is required for t
 
 - ``$googleApiKey = "GOOGLE-API-KEY"``<br/>
 Replace your 'GOOGLE-API-KEY' with your API Key from Google. Make sure it has access to the 'YouTube V3 API' at minimum. It is required for the script to function.  If you do not have one, please visit this website to create one:  https://developers.google.com/workspace/guides/create-credentials#api-key
+
+Press ***CTRL+O*** to save then press ***CTRL-X*** to exit.
   
 ### Use Stand Alone
 This is good to do for the first use.
