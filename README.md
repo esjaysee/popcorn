@@ -45,7 +45,7 @@ Run the following command ``./popcorn.ps1 trailers``
 
 Wait for the script to finish.
 
-If you receive any Invalid Name Format errors run the following command ``./popcorn.ps1 fix`` then run  ``./popcorn.ps1 traiers`` again.
+If you receive any Invalid Name Format errors run the following command ``./popcorn.ps1 fix`` then run  ``./popcorn.ps1 trailers`` again.
 
 The first run will take a little bit of time depending on the size of your collection.
 
