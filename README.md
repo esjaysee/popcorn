@@ -3,7 +3,8 @@
 
 ### Requirements
 Powershell
-A movie library with the naming convention {Movie Title} ({Release Year}), example: Ghostbusters - (1984).
+
+A movie library with the naming convention {Movie Title} ({Release Year}), example: Fall Guy - (2024).
 
 ### Installation
 Download the script in a directory of your choice.  If you want to connect it to Radarr make sure it is in a directory that is visible to your Radarr installation.
