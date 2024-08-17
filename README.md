@@ -17,18 +17,18 @@ Once that is done, you will need to edit the settings for Popcorn to work.
 
 Run the following command ``./popcorn.ps1 edit``
 
-You will need to change the following settings in order to make Popcorn work.
-- ``$libraryRoot = "C:\Your\Movie\Collection"``<br/>
+You will need to change the following settings in order to make Popcorn work:<br/>
+``$libraryRoot = "C:\Your\Movie\Collection"``<br/>
 Change C:\Your\Movie\Collection to the parent directory of your movie collection.
 
-- ``$ytdlpCookies = "edge"``<br/>
+``$ytdlpCookies = "edge"``<br/>
 Change this to whatever browser would have your YouTube/Google Cookies.  YT-DLP Currently supports cookies from the following browsers:  brave, chrome, chromium, edge, firefox, opera, safari, vivaldi, whale.
 
-- ``$tmdbApiKey = "TMDB-API-KEY"``<br/>
-Replace your 'TMDB-API-KEY' with your API Key from TMDB.  This is required for the script to function.  If you do not have one, please visit this website to create one:  https://www.themoviedb.org/settings/api/request
+``$tmdbApiKey = "TMDB-API-KEY"``<br/>
+Replace your 'TMDB-API-KEY' with your API Key from TMDB.<br/>This is required for the script to function.  If you do not have one, please visit this website to create one:  https://www.themoviedb.org/settings/api/request
 
-- ``$googleApiKey = "GOOGLE-API-KEY"``<br/>
-Replace your 'GOOGLE-API-KEY' with your API Key from Google. Make sure it has access to the 'YouTube V3 API' at minimum. It is required for the script to function.  If you do not have one, please visit this website to create one:  https://developers.google.com/workspace/guides/create-credentials#api-key
+``$googleApiKey = "GOOGLE-API-KEY"``<br/>
+Replace your 'GOOGLE-API-KEY' with your API Key from Google. Make sure it has access to the 'YouTube V3 API' at minimum.<br/>It is required for the script to function.  If you do not have one, please visit this website to create one:  https://developers.google.com/workspace/guides/create-credentials#api-key
 
 Press ***CTRL+O*** to save then press ***CTRL-X*** to exit.
   
