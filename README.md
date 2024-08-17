@@ -1,7 +1,7 @@
 # 🍿 POPCORN
   The Powershell Movie Companion Script.  Popcorn can be used to add trailers to your movie collection, fix naming errors and it can also be triggered by Radarr to keep your trailers up to date with your recent additions.
 
-  This came about because I wanted trailers that my Roku will recognize and play through my Jellyfin client and I found trailers.ps1 by James Ashwin. It worked, although with some quirks.  Overall To me it needed a little 'juice'.
+  Long story short; This came about because I wanted trailers I could play on Jellyfin and I found trailers.ps1 by James Ashwin. So I forked it and "hot rodded" it.
 
 ### Requirements
 - Powershell
