@@ -11,15 +11,26 @@ Download the script in a directory of your choice.  If you want to connect it to
 
 Open Powershell and navigate to the directory you saved Popcorn in.
 
-Run ``./popcorn.ps1 install``
+Run the following command:
+- ``./popcorn.ps1 install``
 
-Once that is done, you will need to edit the settings in the file for it to work.
+Once that is done, you will need to edit the settings for Popcorn to work.
 
-Run ``./popcorn.ps1 edit``
+Run the following command:
+- ``./popcorn.ps1 edit``
 
 You will need to change the following settings in order to make Popcorn work.
-``$libraryRoot = "C:\Your\Movie\Collection"`` 
+- ``$libraryRoot = "C:\Your\Movie\Collection"`` 
 Change C:\Your\Movie\Collection to the parent directory of your movie collection.
+
+- ``$ytdlpCookies = "edge"``
+Change this to whatever browser would have your YouTube/Google Cookies.  YT-DLP Currently supports cookies from the following browsers:  brave, chrome, chromium, edge, firefox, opera, safari, vivaldi, whale.
+
+- ``$tmdbApiKey = "TMDB-API-KEY"``
+Replace your 'TMDB-API-KEY' with your API Key from TMDB.  This is required for the script to function.  If you do not have one, please visit this website to create one:  https://www.themoviedb.org/settings/api/request
+
+- ``$googleApiKey = "GOOGLE-API-KEY"``
+Replace your 'GOOGLE-API-KEY' with your API Key from Google. Make sure it has access to the 'YouTube V3 API' at minimum. It is required for the script to function.  If you do not have one, please visit this website to create one:  https://developers.google.com/workspace/guides/create-credentials#api-key
   
 ### Use Stand Alone
 This is good to do for the first use.
