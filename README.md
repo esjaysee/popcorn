@@ -12,15 +12,11 @@
 
 - Open Powershell and navigate to directory you save Popcorn in.
 
-- Run the following command
-  
-  ``./popcorn.ps1 install``
+- Run ``./popcorn.ps1 install``
 
 - Once that is done, you will need to edit the settings in the file for it to work.
 
-- Run the following command to open the editor
-  
-  ``./popcorn.ps1 edit``
+- Run ``./popcorn.ps1 edit``
 
 - You will need to change the following settings in order to make Popcorn work.
   - jrjrjjf
