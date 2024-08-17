@@ -2,23 +2,22 @@
   The Powershell Movie Companion Script.  Popcorn can be used to add trailers to your movie collection, fix naming errors and it can also be triggered by Radarr to keep your trailers up to date with your recent additions.
 
 ### Requirements
-- Powershell
-- A movie library with the naming convention {Movie Title} ({Release Year}), example: Ghostbusters - (1984).
+Powershell
+A movie library with the naming convention {Movie Title} ({Release Year}), example: Ghostbusters - (1984).
 
 ### Installation
-- Download the script and extract in a directory of your choice.  If you want to connect it to Radarr make sure it is in a directory that is visible to your Radarr installation.
+Download the script in a directory of your choice.  If you want to connect it to Radarr make sure it is in a directory that is visible to your Radarr installation.
 
-- Open Powershell and navigate to directory you save Popcorn in.
+Open Powershell and navigate to the directory you saved Popcorn in.
 
-- Run ``./popcorn.ps1 install``
+Run ``./popcorn.ps1 install``
 
-- Once that is done, you will need to edit the settings in the file for it to work.
+Once that is done, you will need to edit the settings in the file for it to work.
 
-- Run ``./popcorn.ps1 edit``
+Run ``./popcorn.ps1 edit``
 
-- You will need to change the following settings in order to make Popcorn work.
-  ``$libraryRoot = "C:\Your\Movie\Collection"``
-  
+You will need to change the following settings in order to make Popcorn work.
+  ``$libraryRoot = "C:\Your\Movie\Collection"`` 
 Change C:\Your\Movie\Collection to the parent directory of your movie collection.
   
 ### Use Stand Alone
