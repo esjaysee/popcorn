@@ -18,7 +18,7 @@ Once that is done, you will need to edit the settings in the file for it to work
 Run ``./popcorn.ps1 edit``
 
 You will need to change the following settings in order to make Popcorn work.
-  ``$libraryRoot = "C:\Your\Movie\Collection"`` 
+``$libraryRoot = "C:\Your\Movie\Collection"`` 
 Change C:\Your\Movie\Collection to the parent directory of your movie collection.
   
 ### Use Stand Alone
