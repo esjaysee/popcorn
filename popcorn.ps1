@@ -300,7 +300,7 @@ if ($args -eq "help"){
 #########################################################################################################
 #  ABOUT ARGUMENT                                                                                       #
 #########################################################################################################
-if ($args -eq "about"){⠀⠀
+if ($args -eq "about"){
     Write-Output "Popcorn - The Powershell Movie Companion Script" | woWhite
     Write-Output "Version $version" | woWhite
     Write-Output "Made by Esjaysee" | woWhite
