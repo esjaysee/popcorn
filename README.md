@@ -17,7 +17,7 @@ Once that is done, you will need to edit the settings for Popcorn to work.
 
 Run the following command ``./popcorn.ps1 edit``
 
-You will need to change the following settings in order to make Popcorn work:<br/>
+You will need to change the following settings in order to make Popcorn work:<br/><br/>
 ``$libraryRoot = "C:\Your\Movie\Collection"``<br/>
 Change C:\Your\Movie\Collection to the parent directory of your movie collection.
 
@@ -31,8 +31,10 @@ Replace your 'TMDB-API-KEY' with your API Key from TMDB.<br/>This is required fo
 Replace your 'GOOGLE-API-KEY' with your API Key from Google. Make sure it has access to the 'YouTube V3 API' at minimum.<br/>It is required for the script to function.  If you do not have one, please visit this website to create one:  https://developers.google.com/workspace/guides/create-credentials#api-key
 
 Press ***CTRL+O*** to save then press ***CTRL-X*** to exit.
+
+Popcorn is now ready to use.
   
-### Use Stand Alone
+### 
 This is good to do for the first use.
 - Open a PowerShell window.
 - Navigate to the installation folder.
