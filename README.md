@@ -36,24 +36,32 @@ Popcorn is now ready to use.
 
 ### How to Use
 This is good to do for the first use.
-- Open a PowerShell window.
-- Navigate to the installation folder.
-- Launch .\trailers.ps1 PATH_TO_MY_LIBRARY_ROOT_FOLDER (ex: .\trailers.ps1 z:\movies).
-- Wait for the script to finish.
+
+Open a PowerShell window.
+
+Navigate to the installation folder.
+
+Run the following command ``./popcorn.ps1 trailers``
+
+Wait for the script to finish.
+
+If you receive any Invalid Name Format errors run the following command ``./popcorn.ps1 fix`` then run  ``./popcorn.ps1 traiers`` again.
 
 The first run will take a little bit of time depending on the size of your collection.
-You can monitor download progress in the Powershell window or in the most recent log file stored under \logs.
+
+You can monitor download progress in the Powershell window or in the most recent log file.
 
 ### Connect with Radarr
-This is the recommended usage.
-- Open Radarr
-- Create a new Connection
-  - Go to 'Settings', 'Connect', '+' and select 'Custom Script'.
-- Set the Notification Triggers to 'On Import' and 'On Rename'.
-- Set the path to your copy of trailers.ps1.
-- Test the Connection.
-- Save the Connection.
+Open Radarr
 
-### Turn off Logs
-On Line 1 change "$LogActivity = $true"
-to "$LogActivity = $false".
+Create a new Connection
+
+Go to 'Settings', 'Connect', '+' and select 'Custom Script'.
+
+Set the Notification Triggers to 'On Import' and 'On Rename'.
+
+Set the path to your copy of trailers.ps1.
+
+Test the Connection.
+
+Save the Connection.
