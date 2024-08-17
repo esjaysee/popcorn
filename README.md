@@ -1,12 +1,12 @@
 # 🍿 POPCORN
   The Powershell Movie Companion Script.  Popcorn can be used to add trailers to your movie collection, fix naming errors and it can also be triggered by Radarr to keep your trailers up to date with your recent additions.
 
-### Requirements
+### ✔️ Requirements
 Powershell
 
 A movie library with the naming convention {Movie Title} ({Release Year}), example: Fall Guy - (2024).
 
-### Installation
+### ⚙️ Installation
 Download the script in a directory of your choice.  If you want to connect it to Radarr make sure it is in a directory that is visible to your Radarr installation.
 
 Open Powershell and navigate to the directory you saved Popcorn in.
@@ -34,7 +34,7 @@ Press ``CTRL+O`` to save then press ``CTRL-X`` to exit.
 
 Popcorn is now ready to use.
 
-### How to Use
+### 🛠️ How to Use
 This is good to do for the first use.
 
 Open a PowerShell window.
@@ -51,7 +51,7 @@ The first run will take a little bit of time depending on the size of your colle
 
 You can monitor download progress in the Powershell window or in the most recent log file.
 
-### Connect with Radarr
+### 🔗 Connect with Radarr
 Open Radarr
 
 Create a new Connection
@@ -60,7 +60,7 @@ Go to 'Settings', 'Connect', '+' and select 'Custom Script'.
 
 Set the Notification Triggers to 'On Import' and 'On Rename'.
 
-Set the path to your copy of trailers.ps1.
+Set the path to your copy of popcorn.ps1.
 
 Test the Connection.
 
