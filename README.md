@@ -1,8 +1,6 @@
 # 🍿 POPCORN
   The Powershell Movie Companion Script.  Popcorn can be used to add trailers to your movie collection, fix naming errors and it can also be triggered by Radarr to keep your trailers up to date with your recent additions.
 
-  Long story short; This came about because I wanted trailers I could play on Jellyfin and I found trailers.ps1 by James Ashwin. So I forked it and "hot rodded" it.
-
 ### Requirements
 - Powershell
 - A movie library with the naming convention {Movie Title} ({Release Year}), example: Ghostbusters - (1984).
@@ -19,7 +17,9 @@
 - Run ``./popcorn.ps1 edit``
 
 - You will need to change the following settings in order to make Popcorn work.
-  - jrjrjjf
+  ``$libraryRoot = "C:\Your\Movie\Collection"``
+  
+Change C:\Your\Movie\Collection to the parent directory of your movie collection.
   
 ### Use Stand Alone
 This is good to do for the first use.
