@@ -17,7 +17,7 @@
   - ``$libraryRoot = "C:\Your\Movie\Collection"``<br/>
   Change C:\Your\Movie\Collection to the parent directory of your movie collection.
   - ``$ytdlpCookies = "edge"``<br/>
-  Change this to whatever browser would have your YouTube/Google Cookies.  YT-DLP Currently supports cookies from the following browsers:  brave, chrome, chromium, edge, firefox, 
+  Change this to whatever browser would have your YouTube/Google Cookies.  YT-DLP currently supports cookies from the following browsers:  brave, chrome, chromium, edge, firefox, 
 opera, safari, vivaldi, whale.
   - ``$tmdbApiKey = "TMDB-API-KEY"``<br/>
   Replace your 'TMDB-API-KEY' with your API Key from TMDB.<br/>This is required for the script to function.  If you do not have one, please visit this website to create one:  https://www.themoviedb.org/settings/api/request
