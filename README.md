@@ -8,20 +8,22 @@
 <br/>
 
 ### ⚙️ Installation
-- Download the script in a directory of your choice.  If you want to connect it to Radarr make sure it is in a directory that is visible to your Radarr installation.
+- Download the script in a directory of your choice. <br/>
+  If you want to connect it to Radarr make sure it is in a directory that is visible to your Radarr installation.
 - Open Powershell and navigate to the directory you saved Popcorn in.
 - Run the following command ``./popcorn.ps1 install``
-- Once that is done, you will need to edit the settings for Popcorn to work.  Run the following command ``./popcorn.ps1 edit``
-- You will need to change the following settings in order to make Popcorn work:<br/>
+- Now you will need to edit the settings.<br/>
+  Run the following command ``./popcorn.ps1 edit``
+- You must change the following settings for Popcorn to work:<br/>
   - ``$libraryRoot = "C:\Your\Movie\Collection"``<br/>
   Change C:\Your\Movie\Collection to the parent directory of your movie collection.
   - ``$ytdlpCookies = "edge"``<br/>
-  Change this to whatever browser would have your YouTube/Google Cookies.  YT-DLP currently supports cookies from the following browsers:  brave, chrome, chromium, edge, firefox, 
+  Change this to whatever browser would have your YouTube/Google Cookies.<br/>YT-DLP currently supports cookies from the following browsers:<br/>brave, chrome, chromium, edge, firefox, 
 opera, safari, vivaldi, whale.
   - ``$tmdbApiKey = "TMDB-API-KEY"``<br/>
-  Replace your 'TMDB-API-KEY' with your API Key from TMDB.<br/>This is required for the script to function.  If you do not have one, please visit this website to create one:  https://www.themoviedb.org/settings/api/request
+  Replace your 'TMDB-API-KEY' with your API Key from TMDB.<br/>This is required for the script to function.<br/>If you do not have one, please visit this website to create one:  https://www.themoviedb.org/settings/api/request
   - ``$googleApiKey = "GOOGLE-API-KEY"``<br/>
-  Replace your 'GOOGLE-API-KEY' with your API Key from Google. Make sure it has access to the 'YouTube V3 API' at minimum.<br/>It is required for the script to function.  If you do not have one, please visit this website to create one:  https://developers.google.com/workspace/guides/create-credentials#api-key
+  Replace your 'GOOGLE-API-KEY' with your API Key from Google.<br/>Make sure it has access to the 'YouTube V3 API' at minimum.<br/>It is required for the script to function.<br/>If you do not have one, please visit this website to create one:  https://developers.google.com/workspace/guides/create-credentials#api-key
 - Press ``CTRL+O`` to save then press ``CTRL-X`` to exit.
 - Popcorn is now ready to use. ⭐
 <br/>
