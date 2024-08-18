@@ -4,7 +4,7 @@
 
 ### ✔️ Requirements
 - Powershell
-- A movie library with the naming convention {Movie Title} ({Release Year}), example: Fall Guy - (2024).
+- A movie library with the naming convention {Movie Title} ({Release Year}), example: Fall Guy (2024).
 <br/>
 
 ### ⚙️ Installation
