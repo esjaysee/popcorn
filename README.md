@@ -11,9 +11,9 @@
 - Download the script in a directory of your choice. <br/>
   If you want to connect it to Radarr make sure it is in a directory that is visible to your Radarr installation.
 - Open Powershell and navigate to the directory you saved Popcorn in.
-- Run the following command ``./popcorn.ps1 install``
+- Run the following command ``./popcorn install``
 - Now you will need to edit the settings.<br/>
-  Run the following command ``./popcorn.ps1 edit``
+  Run the following command ``./popcorn edit``
 - You must change the following settings for Popcorn to work:<br/>
   - ``$libraryRoot = "C:\Your\Movie\Collection"``<br/>
   Change C:\Your\Movie\Collection to the parent directory of your movie collection.
@@ -31,9 +31,9 @@ opera, safari, vivaldi, whale.
 ### 🛠️ How to Use
 - Open a PowerShell window.
 - Navigate to the installation folder.
-- Run the following command ``./popcorn.ps1 trailers``
+- Run the following command ``./popcorn trailers``
 - Wait for the script to finish.
-- If you receive any Invalid Name Format errors run the following command ``./popcorn.ps1 fix`` then run  ``./popcorn.ps1 trailers`` again.
+- If you receive any Invalid Name Format errors run the following command ``./popcorn fix`` then run  ``./popcorn trailers`` again.
 - The first run will take a little bit of time depending on the size of your collection.
 - You can monitor download progress in the Powershell window or in the most recent log file.
 <br/>
@@ -46,3 +46,13 @@ opera, safari, vivaldi, whale.
   - Set the path to your copy of popcorn.ps1.
   - Test the Connection.
   - Save the Connection.
+<br/>
+
+### 👑 Commands
+- ``./popcorn fix`` Scan the library and attempt to fix any invalid naming formats found.
+- ``./popcorn edit`` Launch Nano so you can edit the script.
+- ``./popcorn help`` Displays the Help dialog.
+- ``./popcorn about`` Displays the About dialog.
+- ``./popcorn install`` Install the dependencies via Chocolatey Package Manager.  If you don't have Chocolatey it will be installed along with FFMPEG, YT-DLP and Nano.
+- ``./popcorn trailers`` Scan the library and download trailers for the movies found.
+    
