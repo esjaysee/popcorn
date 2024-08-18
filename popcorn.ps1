@@ -69,9 +69,9 @@ $ytdlpQuality = "vcodec:h264,fps,res,acodec:m4a"
 #########################################################################################################
 #  SCRIPT                                                                                               #
 #########################################################################################################
-$Version = "1.08.17"
+$Version = "1.08.18"
 Add-Type -AssemblyName System.Web
-$Host.UI.RawUI.WindowTitle = "POPCORN $Version"
+$Host.UI.RawUI.WindowTitle = "popcorn $Version"
 $MyInvocation.MyCommand.Path | Split-Path | Push-Location
 $ytParams = @{
     $ytLanguage=[pscustomobject]@{UseOriginalMovieName=$true; SearchKeywords=$ytKeyword1};
@@ -245,8 +245,20 @@ write-output ""
 #  NO ARGUMENTS                                                                                         #
 #########################################################################################################
 if($args.Count -eq 0) {
-    Write-Output "For a list of commands type './popcorn.ps1 help'" | woWhite
+    Write-Output "For a list of commands type './popcorn help'" | woWhite
     Write-Output ""
+    exit 
+}
+
+
+#########################################################################################################
+#  NO ARGUMENTS                                                                                         #
+#########################################################################################################
+if($args.Count -eq "update") {
+    Write-Output "Popcorn is looking for updates..." | woButter
+    curl -fsSL github.com/esjaysee/popcorn/releases/latest/download/popcorn.ps1 -O
+    Start-Process -FilePath powershell.exe -ArgumentList {choco upgrade all} -verb RunAs
+    Write-Output "Popcorn is done looking for updates.  If they where found, they've been installed." | woButter
     exit 
 }
 
@@ -266,9 +278,9 @@ if ($args -eq "edit"){
 #  HELP ARGUMENT                                                                                        #
 #########################################################################################################
 if ($args -eq "help"){
-    Write-Output "Please run './popcorn.ps1 install' and configure the settings before calling the script." | woWhite
+    Write-Output "Please run './popcorn install' and configure the settings before calling the script." | woWhite
     Write-Output "To configure the settings either open the script in an external text editor such as" | woWhite
-    Write-Output "Notepad, VScode or run './popcorn.ps1 edit' to edit in the terminal." | woWhite
+    Write-Output "Notepad, VScode or run './popcorn edit' to edit in the terminal." | woWhite
     Write-Output ""
     Write-Output "You MUST fill in the 'libraryRoot', 'ytdlpCookies', 'tmdbApiKey' and 'googleApiKey'" | woButter
     write-output "information at MINIMUM for Popcorn to work.  The other settings are optional." | woButter
@@ -276,7 +288,7 @@ if ($args -eq "help"){
     Write-Output "#######################################################################################" | woGreen
     Write-Output "# Popcorn Commands                                                                    #" | woGreen
     Write-Output "# to use enter the command when calling the script.                                   #" | woGreen
-    Write-Output "# for example to grab trailers run ./popcorn.ps1 trailers                             #" | woGreen
+    Write-Output "# for example to grab trailers run ./popcorn trailers                             #" | woGreen
     Write-Output "#######################################################################################" | woGreen
     Write-Output " fix           Scan the library and attempt to fix invalid naming formats." | woWhite
     Write-Output ""
@@ -368,6 +380,7 @@ if ($args -eq "install"){
 
     $decision = $Host.UI.PromptForChoice($title, $question, $choices, 0)
     if ($decision -eq 0) {
+        Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
         Start-Process -FilePath powershell.exe -ArgumentList {choco install ffmpeg yt-dlp nano} -verb RunAs
         Write-Output "Dependecies successfully installed." | woButter
         exit
@@ -376,7 +389,9 @@ if ($args -eq "install"){
         Write-Output "Cancelled by User." | woRed
         }
     }
-
+ if ($args -eq "ch"){
+ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+ }
 #########################################################################################################
 #  TRAILERS ARGUMENT                                                                                    #
 #########################################################################################################
@@ -431,7 +446,7 @@ if ($args -eq "trailers"){
     if ($errorCount -ne 0){
     Write-Output "Popcorn returned $errorCount error(s)." | woRed
     logWrite "Popcorn returned $errorCount error(s)." 
-    write-output "Please run './popcorn.ps1 fix', then run the trailer grabber again." | woRed
+    write-output "Please run './popcorn fix', then run the trailer grabber again." | woRed
     }
 }
 else{
