@@ -252,18 +252,6 @@ if($args.Count -eq 0) {
 
 
 #########################################################################################################
-#  NO ARGUMENTS                                                                                         #
-#########################################################################################################
-if($args.Count -eq "update") {
-    Write-Output "Popcorn is looking for updates..." | woButter
-    curl -fsSL github.com/esjaysee/popcorn/releases/latest/download/popcorn.ps1 -O
-    Start-Process -FilePath powershell.exe -ArgumentList {choco upgrade all} -verb RunAs
-    Write-Output "Popcorn is done looking for updates.  If they where found, they've been installed." | woButter
-    exit 
-}
-
-
-#########################################################################################################
 #  EDIT ARGUMENT                                                                                        #
 #########################################################################################################
 if ($args -eq "edit"){
