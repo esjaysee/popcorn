@@ -11,8 +11,7 @@
 - Download the script in a directory of your choice.  If you want to connect it to Radarr make sure it is in a directory that is visible to your Radarr installation.
 - Open Powershell and navigate to the directory you saved Popcorn in.
 - Run the following command ``./popcorn.ps1 install``
-- Once that is done, you will need to edit the settings for Popcorn to work.
-- Run the following command ``./popcorn.ps1 edit``
+- Once that is done, you will need to edit the settings for Popcorn to work.  Run the following command ``./popcorn.ps1 edit``
 - You will need to change the following settings in order to make Popcorn work:<br/>
   - ``$libraryRoot = "C:\Your\Movie\Collection"``<br/>
   Change C:\Your\Movie\Collection to the parent directory of your movie collection.
