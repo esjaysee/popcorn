@@ -1,5 +1,5 @@
 # 🍿 POPCORN
-  The Powershell Movie Companion Script.  Popcorn can be used to add trailers to your movie collection, fix naming errors and it can also be triggered by Radarr to keep your trailers up to date with your recent additions.  Popcorn was forked from 
+  The Powershell Movie Companion Script.  Popcorn can be used to add trailers to your movie collection, fix naming errors and it can also be triggered by Radarr to keep your trailers up to date with your recent additions.  Popcorn was forked from <a href="https://github.com/James-Ashwin/trailers">trailers.ps1 by James Ashwin</a>.
 <br/>
 
 ### ✔️ Requirements
