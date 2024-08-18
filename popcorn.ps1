@@ -69,7 +69,7 @@ $ytdlpQuality = "vcodec:h264,fps,res,acodec:m4a"
 #########################################################################################################
 #  SCRIPT                                                                                               #
 #########################################################################################################
-$Version = "1.08.18"
+$Version = "1.02"
 Add-Type -AssemblyName System.Web
 $Host.UI.RawUI.WindowTitle = "popcorn $Version"
 $MyInvocation.MyCommand.Path | Split-Path | Push-Location
@@ -235,7 +235,7 @@ write-output "##  888        888     888 888        888    888 888     888 888 T
 write-output "##  888        Y88b. .d88P 888        Y88b  d88P Y88b. .d88P 888  T88b  888   Y8888  ##" | woButter
 write-output "##  888          Y88888P   888          Y8888P     Y88888P   888   T88b 888    Y888  ##" | woButter 
 Write-Output "##                                                                                   ##" | woButter
-Write-Output "##  The Powershell Movie Companion Script                          version: $Version  ##" | woButter
+Write-Output "##  The Powershell Movie Companion Script                             version: $version  ##" | woButter
 Write-Output "##                                                                                   ##" | woButter
 write-output "#######################################################################################" | woButter
 write-output ""       
@@ -377,9 +377,8 @@ if ($args -eq "install"){
         Write-Output "Cancelled by User." | woRed
         }
     }
- if ($args -eq "ch"){
- Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
- }
+
+
 #########################################################################################################
 #  TRAILERS ARGUMENT                                                                                    #
 #########################################################################################################
