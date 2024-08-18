@@ -10,6 +10,7 @@
 #            888          Y88888P   888          Y8888P     Y88888P   888   T88b 888    Y888            #
 #                                                                                                       #
 #                                 The Powershell Movie Companion Script                                 #  
+#                                  https://github.com/esjaysee/popcorn                                  #
 #                                                                                                       #
 #########################################################################################################
 
@@ -41,20 +42,20 @@ $googleApiKey = "GOOGLE-API-KEY"
 #########################################################################################################
 #  OPTIONAL SETTINGS                                                                                    #
 #########################################################################################################
-$LogActivity = $true
+$logActivity = $true
 # Change this to '$false' to turn off Logs.
 
-$LogFolderName = "Logs"
-# Change this to whatever you want to name your Log folder.
+$logFolderName = "Logs"
+# Change this to whatever you want to name your log folder.
 # Ignore this setting if you turned off Logs.
 
-$TestModeRadarr = $false
+$radarrTestMode = $false
 # DO NOT change this if you can connect to Radarr.
 # Change this to '$true' if you have problems connecting to Radarr.
 
-$YoutubeLanguage = "en"
-$YoutubeKeyword1 = "Official Trailer"
-$YoutubeKeyword2 = "Trailer"
+$ytLanguage = "en"
+$ytKeyword1 = "Official Trailer"
+$ytKeyword2 = "Trailer"
 # DO NOT change anything in this settings group if you prefer English.
 # You can use this to change what language it downloads the content in.
 # For example if you want French change 'en' to 'fr', 'Official Trailer'
@@ -72,19 +73,15 @@ $Version = "1.08.17"
 Add-Type -AssemblyName System.Web
 $Host.UI.RawUI.WindowTitle = "POPCORN $Version"
 $MyInvocation.MyCommand.Path | Split-Path | Push-Location
-$YoutubeParams = @{
-    $YoutubeLanguage=[pscustomobject]@{UseOriginalMovieName=$true; SearchKeywords=$YoutubeKeyword1};
-    default=[pscustomobject]@{UseOriginalMovieName=$false; SearchKeywords=$YoutubeKeyword2}
+$ytParams = @{
+    $ytLanguage=[pscustomobject]@{UseOriginalMovieName=$true; SearchKeywords=$ytKeyword1};
+    default=[pscustomobject]@{UseOriginalMovieName=$false; SearchKeywords=$ytKeyword2}
 }
 
 
 #########################################################################################################
 #  FUNCTIONS                                                                                            #
 #########################################################################################################
-function Pass-Parameters {
-    Param ([hashtable]$NamedParameters)
-    return ($NamedParameters.GetEnumerator()|%{"-$($_.Key) `"$($_.Value)`""}) -join " "
-}
 function woRed
 {
     process { Write-Host $_ -ForegroundColor Red  }
@@ -112,20 +109,20 @@ function woWhite
     process { Write-Host $_ -ForegroundColor White }
 }
 
-function Log {
-    param ($LogText)
+function log {
+    param ($logText)
 
-    if($LogActivity) {
-        $LogText >> $LogFileName
+    if($logActivity) {
+        $logText >> $logFileName
     }
 }
 
-function LogInFunction {
-    param($LogText)
+function logWrite {
+    param($logText)
 
-    Write-Information $LogText -InformationAction Continue
-    if($LogActivity) {
-        $LogText >> $LogFileName
+    Write-Information $logText -InformationAction Continue
+    if($logActivity) {
+        $logText >> $logFileName
     }
 }
 
@@ -155,14 +152,14 @@ function Get-YoutubeTrailer {
 
     $trailerFilename = "$moviePath\$movieTitle ($movieYear)-Trailer"
 
-    $keywords = $YoutubeParams.default.SearchKeywords;
+    $keywords = $ytParams.default.SearchKeywords;
     if($tmdbApiKey -ne 'TMDB-API-KEY' -and $tmdbId -ne '') {
         $tmdbURL = "https://api.themoviedb.org/3/movie/$($tmdbId)?api_key=$tmdbApiKey"
         $tmdbInfo = fetchJSON($tmdbURL)
 
-        if($YoutubeParams.ContainsKey($tmdbInfo.original_language)) {
-            $keywords = $YoutubeParams[$tmdbInfo.original_language].SearchKeywords
-            if($YoutubeParams[$tmdbInfo.original_language].UseOriginalMovieName) {
+        if($ytParams.ContainsKey($tmdbInfo.original_language)) {
+            $keywords = $ytParams[$tmdbInfo.original_language].SearchKeywords
+            if($ytParams[$tmdbInfo.original_language].UseOriginalMovieName) {
                 $movieTitle = $tmdbInfo.original_title
             }
         }
@@ -175,25 +172,25 @@ function Get-YoutubeTrailer {
     $ytSearchResults =  fetchJSON($ytSearchUrl)
     $ytVideoId = $ytSearchResults.items[0].id.videoId
 
-    yt-dlp -i --cookies-from-browser $ytdlpCookies -S $ytdlpQuality -o $trailerFilename https://www.youtube.com/watch?v=$ytVideoId | Out-File -FilePath $LogFileName -Append
+    yt-dlp -i --cookies-from-browser $ytdlpCookies -S $ytdlpQuality -o $trailerFilename https://www.youtube.com/watch?v=$ytVideoId | Out-File -FilePath $logFileName -Append
 }
 
 
 #########################################################################################################
 #  MAKE LOGS                                                                                            #
 #########################################################################################################
-if($LogActivity -and -not(Test-Path $LogFolderName)) {
-    New-Item $LogFolderName -ItemType Directory
+if($logActivity -and -not(Test-Path $logFolderName)) {
+    New-Item $logFolderName -ItemType Directory
 }
-$LogFileName = Get-Date -Format FileDateTime
-$LogFileName = "$LogFolderName/$LogFileName.txt"
+$logFileName = Get-Date -Format FileDateTime
+$logFileName = "$logFolderName/$logFileName.txt"
 
 
 #########################################################################################################
 #  RADARR CALLED                                                                                        #
 #########################################################################################################
-if($TestModeRadarr) {
-    Log "Setting TEST MODE environment"
+if($radarrTestMode) {
+    logWrite "Setting TEST MODE environment"
     $Env:radarr_eventtype = "Download"
     $Env:radarr_isupgrade = "False"
     $Env:radarr_movie_path = "Z:\Movies\Ghostbusters (1984)"
@@ -205,14 +202,14 @@ if($TestModeRadarr) {
 cls
 
 if(Test-Path Env:radarr_eventtype) {
-    Log "RADARR :: SCRIPT TRIGGERED."
+    logWrite "RADARR :: SCRIPT TRIGGERED."
 
     if($Env:radarr_eventtype -eq "Test") {
         if($googleApiKey -eq "GOOGLE-API-KEY") {
-            Log "ERROR :: TMDB API KEY MISSING!"
+            logWrite "ERROR :: TMDB API KEY MISSING!"
             exit 1
         }
-        Log "RADARR :: CONNECTION TEST SUCCESSFUL."
+        logWrite "RADARR :: CONNECTION TEST SUCCESSFUL."
     }
     
     if(($Env:radarr_eventtype -eq "Download" -and $Env:radarr_isupgrade -eq "False") -or $Env:radarr_eventtype -eq "Rename") {
@@ -399,11 +396,9 @@ if ($args -eq "trailers"){
         }
     
         if($alreadyHasTrailer) {
-            #write-output "Skipping $($_.Name). It already has a trailer." | woGray
+            logWrite "Skipping $($_.Name). It already has a trailer." | woGray
         }
-        else {
-          #  Write-Output "Searching for a trailer for $($_.Name)..." | woWhite
-            
+        else {  
             $videoFile = Get-ChildItem -LiteralPath "$($_.FullName)" -File | Sort-Object Length -Descending | Select-Object BaseName -First 1
             if($videoFile.BaseName -match "(.*) \((\d{4})\)") {
                 $title = $Matches.1
@@ -421,19 +416,21 @@ if ($args -eq "trailers"){
                 Write-Output "Downloading a trailer for $($_.Name)..." | woBlue
                 Get-YoutubeTrailer $title $year $_.FullName $tmdbId
                 $downloadedTrailersCount++
-                Log "Downloaded $($_.Name)" 
+                logWrite "Downloaded a trailer for ""$($_.Name)""." 
                 Write-Output "Successfully downloaded a trailer for ""$($_.Name)""." | woBlue
             }
             else {
                 Write-Output "$($_.Name) has an invalid file name format or is missing!" | woRed
-                 $errorCount++    
+                logWrite "$($_.Name) has an invalid file name format or is missing!" | woRed
+                $errorCount++    
             }
         
     }}
-    Log "Downloaded $downloadedTrailersCount new trailer(s)."
+    logWrite "Popcorn downloaded $downloadedTrailersCount new trailer(s)."
     Write-Output "Popcorn downloaded $downloadedTrailersCount new trailers to your collection." | woButter
     if ($errorCount -ne 0){
     Write-Output "Popcorn returned $errorCount error(s)." | woRed
+    logWrite "Popcorn returned $errorCount error(s)." 
     write-output "Please run './popcorn.ps1 fix', then run the trailer grabber again." | woRed
     }
 }
