@@ -256,7 +256,7 @@ if($args.Count -eq 0) {
 #########################################################################################################
 if ($args -eq "edit"){
     Write-Output "Launching..." | woWhite
-    nano mypopcorn.ps1
+    nano popcorn.ps1
     Write-Output "Done..." | woWhite
     exit
 }
