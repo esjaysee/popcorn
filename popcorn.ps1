@@ -69,7 +69,7 @@ $ytdlpQuality = "vcodec:h264,fps,res,acodec:m4a"
 #########################################################################################################
 #  SCRIPT                                                                                               #
 #########################################################################################################
-$Version = "1.02"
+$Version = "1.03"
 Add-Type -AssemblyName System.Web
 $Host.UI.RawUI.WindowTitle = "popcorn $Version"
 $MyInvocation.MyCommand.Path | Split-Path | Push-Location
