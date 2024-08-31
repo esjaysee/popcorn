@@ -3,8 +3,7 @@
 <br/><br/>
 
 ### ✔️ Requirements
-- .NET 6
-- Powershell 7
+- Powershell 5+
 - A movie library with the naming convention {Movie Title} ({Release Year}), example: Fall Guy (2024).
 <br/>
 
